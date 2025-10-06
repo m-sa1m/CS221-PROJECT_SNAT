@@ -1,1 +1,1 @@
-# CS221-PROJECT_SNAT
+# Secure Network Assessment Tool (SNAT)
