@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+#include"algorithm.h"
+
 int main()
 {
     cout << "=== Secure Netwok Assessment Tool (SNAT) - CORE IMPLEMENTATION ===\n";

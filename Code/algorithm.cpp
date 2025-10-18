@@ -1,8 +1,13 @@
-// RISK CALCULATION ALGORITHM
+#include <iostream>
+using namespace std;
+
+#include "structure.h"
+
+
 int calculateRisk(System* sys) {
     int score = 0;
     
-    // Password risk (weaker = higher risk)
+    // Password risk
     score += (10 - sys->passwordStrength) * 3;
     
     // Open ports risk

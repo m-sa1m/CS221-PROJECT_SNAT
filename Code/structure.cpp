@@ -1,5 +1,8 @@
 #include <iostream>
-using namespace std; 
+using namespace std;
+
+#include"header.h"
+
 struct System
 {
     string name;
