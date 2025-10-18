@@ -1,4 +1,4 @@
-// 5) RISK CALCULATION ALGORITHM
+// RISK CALCULATION ALGORITHM
 int calculateRisk(System* sys) {
     int score = 0;
     
