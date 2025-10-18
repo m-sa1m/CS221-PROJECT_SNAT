@@ -3,14 +3,14 @@ using namespace std;
 struct System
 {
     string name;
-    int PasswordStrength;
-    int OpenPorts;
-    bool FireWallsON;
-    int RiskScore;
+    int password_strength;
+    int open_ports;
+    bool firewalls;
+    int risk_core;
 
 };
 
-int RiskWeight[3]={30,25,35};
+int risk_weight[3]={30,25,35};
 
 struct Node
 {
@@ -26,12 +26,12 @@ struct SystemList
         head = NULL;
     }
 
-    void AddSystem(System * sys)
+    void add_system(System * sys)
     {
         Node *newNode= new Node();
         newNode->data= sys;
         newNode->next= head;
         head = newNode;
     }
-    
+
 };
