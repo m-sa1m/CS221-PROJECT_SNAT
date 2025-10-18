@@ -13,4 +13,13 @@ int main()
     System* systems[] = {&sys1, &sys2, &sys3};
     int count = 3;
 
+    // to calculate risks
+    cout << "\nCalculating Risk score...\n"; 
+    for(int i = 0; i < count; i++) {
+        calculateRisk(systems[i]);
+    }
+    
+    // to sort by risks
+    sortSystems(systems, count);
+
 }
