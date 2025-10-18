@@ -35,7 +35,7 @@ int main()
     }
     
 
-   // storing in linked-list 
+   //storing in linked-list 
     SystemList network;
     network.addSystem(&sys1);
     network.addSystem(&sys2);
