@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    cout << "=== Secure Netwok Assessment Tool (SNAT) - CORE IMPLEMENTATION ===\n";
+    
+    // harcoded inputs :
+    System sys1 = {"webserver", 7, 2, true, 0};
+    System sys2 = {"database", 3, 5, false, 0};
+    System sys3 = {"pc", 9, 1, true, 0};
+
+    System* systems[] = {&sys1, &sys2, &sys3};
+    int count = 3;
+
+}
