@@ -1,40 +1,19 @@
 #include <iostream>
 using namespace std;
+#include "structure.h"
 
-#include"header.h"
-
-struct System
-{
-    string name;
-    int password_strength;
-    int open_ports;
-    bool firewalls;
-    int risk_core;
-
-};
 
 int risk_weight[3]={30,25,35};
 
-struct Node
+SystemList::SystemList()
 {
-    System*data;
-    Node*next;  
-};
+    head = NULL;
+}
 
-struct SystemList
+void SystemList::add_system(System * sys)
 {
-    Node* head;
-    SystemList()
-    {
-        head = NULL;
-    }
-
-    void add_system(System * sys)
-    {
-        Node *newNode= new Node();
-        newNode->data= sys;
-        newNode->next= head;
-        head = newNode;
-    }
-
-};
+    Node *newNode= new Node();
+    newNode->data= sys;
+    newNode->next= head;
+    head = newNode;
+}
