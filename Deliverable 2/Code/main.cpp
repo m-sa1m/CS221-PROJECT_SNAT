@@ -2,10 +2,11 @@
 using namespace std;
 
 #include"algorithm.h"
+#include "structure.h"
 
 int main()
 {
-    cout << "=== Secure Netwok Assessment Tool (SNAT) - CORE IMPLEMENTATION ===\n";
+    cout << "\nSecure Netwok Assessment Tool (SNAT) \n";
     
     // harcoded inputs :
     System sys1 = {"webserver", 7, 2, true, 0};
@@ -28,7 +29,7 @@ int main()
 
 
     //ouput
-    cout << "\n=== RANKED SYSTEM ===\n";
+    cout << "\n   RANKED SYSTEM \n\n";
     for(int i = 0; i < count; i++) {
         string level = (systems[i]->risk_score < 50) ? "LOW" : 
                       (systems[i]->risk_score < 80) ? "MEDIUM" : "HIGH";
@@ -43,7 +44,7 @@ int main()
     network.add_system(&sys2);
     network.add_system(&sys3);
     
-    cout << "\nLinked List: 3 systems stored dynamically\n";
+    cout << "\nLinked List: 3 systems stored \n";
     
     return 0;
 }
