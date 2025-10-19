@@ -19,29 +19,29 @@ int main()
     //to calculate risks
     cout << "\nCalculating Risk score...\n"; 
     for(int i = 0; i < count; i++) {
-        calculateRisk(systems[i]);
+        calculate_risk(systems[i]);
     }
     
 
     // to sort by risks
-    sortSystems(systems, count);
+    sort_systems(systems, count);
 
 
     //ouput
     cout << "\n=== RANKED SYSTEM ===\n";
     for(int i = 0; i < count; i++) {
-        string level = (systems[i]->riskScore < 50) ? "LOW" : 
-                      (systems[i]->riskScore < 80) ? "MEDIUM" : "HIGH";
+        string level = (systems[i]->risk_score < 50) ? "LOW" : 
+                      (systems[i]->risk_score < 80) ? "MEDIUM" : "HIGH";
         cout << i+1 << ". " << systems[i]->name << " - " 
-             << systems[i]->riskScore << "/100 (" << level << ")\n";
+             << systems[i]->risk_score << "/100 (" << level << ")\n";
     }
     
 
    //storing in linked-list 
     SystemList network;
-    network.addSystem(&sys1);
-    network.addSystem(&sys2);
-    network.addSystem(&sys3);
+    network.add_system(&sys1);
+    network.add_system(&sys2);
+    network.add_system(&sys3);
     
     cout << "\nLinked List: 3 systems stored dynamically\n";
     
