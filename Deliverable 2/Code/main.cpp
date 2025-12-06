@@ -1,16 +1,17 @@
 #include <iostream>
+using namespace std;
+
+#include"algorithm.h"
+#include "structure.h"
 #include <cstdlib>
 #include <ctime>
-#include "structure.h"
 #include "algorithm.h"
 #include "menu.h"
 #include "input.h"
 #include "fileio.h"
-using namespace std;
-
 
 void initialize_sample_data(SystemList& list) {
-    cout << "\n⏳ Loading sample data...\n";
+    cout << endl << "⏳ Loading sample data..." << endl;
     
     // System 1: Low Risk
     System* sys1 = new System();
@@ -87,29 +88,23 @@ void initialize_sample_data(SystemList& list) {
     calculate_risk(sys5);
     list.add_system(sys5);
     
-    cout << "✅ Loaded " << list.get_count() << " sample systems.\n";
+    cout << "✅ Loaded " << list.get_count() << " sample systems." << endl;
 }
 
 int main() {
     
     srand(time(0));
     
-    
-    cout << "\n╔════════════════════════════════════════════╗\n";
-    cout << "║                                            ║\n";
-    cout << "║  SECURE NETWORK ASSESSMENT TOOL (SNAT)    ║\n";
-    cout << "║  Version 3.0 - Deliverable 3              ║\n";
-    cout << "║                                            ║\n";
-    cout << "║  Data Structures & Algorithms Project     ║\n";
-    cout << "║  CS221 - Fall 2024                        ║\n";
-    cout << "║                                            ║\n";
-    cout << "╚════════════════════════════════════════════╝\n";
-    
+    cout << endl << "════════════════════════════════════════════" << endl;
+    cout << "  SECURE NETWORK ASSESSMENT TOOL (SNAT)" << endl;
+    cout << "  Version 3.0 - Deliverable 3" << endl;
+    cout << "  Data Structures & Algorithms Project" << endl;
+    cout << "  CS221 - Fall 2024" << endl;
+    cout << "════════════════════════════════════════════╝" << endl;
     
     SystemList network;
     
-    
-    cout << "\n📋 Would you like to load sample data? (y/n): ";
+    cout << endl << " Would you like to load sample data? (y/n): ";
     char choice;
     cin >> choice;
     cin.ignore();
@@ -118,14 +113,59 @@ int main() {
         initialize_sample_data(network);
         pause_screen();
     } else {
-        cout << "\n✓ Starting with empty network.\n";
+        cout << endl << "✓ Starting with empty network." << endl;
         pause_screen();
     }
     
-   
     int option;
     bool running = true;
     
+    while (running) {
+        clear_screen();
+        display_main_menu();
+        cin >> option;
+        cin.ignore();
+        
+        switch (option) {
+            case 1:
+                handle_add_system(network);
+                break;
+                
+            case 2:
+                handle_delete_system(network);
+                break;
+                
+            case 3:
+                handle_search_system(network);
+                break;
+                
+            case 4:
+                handle_scan_system(network);
+                break;
+                
+            case 5:
+                handle_sort_systems(network);
+                break;
+                
+            case 6:
+                handle_display_options(network);
+                break;
+                
+            case 7:
+                handle_analysis(network);
+                break;
+                
+            case 8:
+                handle_file_operations(network);
+                break;
+                
+            case 9:
+                clear_screen();
+                cout << endl << "════════════════════════════════════════════" << endl;
+                cout << "  Thank you for using SNAT!" << endl;
+                cout << "  Network security is everyone's responsibility." << endl;
+                cout << "  Stay safe, stay secure! 🔒" << endl;
+                cout << " ════════════════════════════════════════════" << endl << endl;
                 
                 if (network.get_count() > 0) {
                     cout << "📊 Generate final assessment report? (y/n): ";
@@ -134,24 +174,24 @@ int main() {
                     
                     if (gen == 'y' || gen == 'Y') {
                         generate_report(network, "final_assessment_report.txt");
-                        cout << "\n✅ Report saved as: final_assessment_report.txt\n";
+                        cout << endl << "✅ Report saved as: final_assessment_report.txt" << endl;
                     }
                     
-                    cout << "\n💾 Save current network state? (y/n): ";
+                    cout << endl << "💾 Save current network state? (y/n): ";
                     cin >> gen;
                     
                     if (gen == 'y' || gen == 'Y') {
                         save_systems_to_file(network, "network_backup.txt");
-                        cout << "\n✅ Network saved as: network_backup.txt\n";
+                        cout << endl << "✅ Network saved as: network_backup.txt" << endl;
                     }
                 }
                 
-                cout << "\nGoodbye!\n\n";
+                cout << endl << "Goodbye!" << endl << endl;
                 running = false;
                 break;
                 
             default:
-                cout << "\n❌ Invalid option! Please enter a number between 1-9.\n";
+                cout << endl << "❌ Invalid option! Please enter a number between 1-9." << endl;
                 pause_screen();
         }
     }
