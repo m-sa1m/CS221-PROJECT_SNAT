@@ -852,9 +852,11 @@ See [Future Work](#future-work) section for planned enhancements.
 ---
 
 ## Team:
-- **Muhammad Saim** ([m-sa1m](https://github.com/m-sa1m))
-- **Muhammad Haris Zafar** ([mhariszaffar](https://github.com/mhariszaffar))
-- **Muhammad Ibrahim Gulzar** ([ibrahim-gulzar](https://github.com/ibrahim-gulzar))
+
+|  |  |  |
+|:-:|:-:|:-:|
+| <img src="https://avatars.githubusercontent.com/u/138539113?v=4" width="100" alt="m-sa1m"/>  | <img src="https://avatars.githubusercontent.com/u/100025834?v=4" width="100" alt="mhariszaffar"/> | <img src="https://avatars.githubusercontent.com/u/158169613?v=4" width="100" alt="ibrahim-gulzar"/> |
+| **Muhammad Saim**  <br> [![@m-sa1m](https://img.shields.io/badge/GitHub-m--sa1m-181717?style=for-the-badge&logo=github)](https://github.com/m-sa1m) | **Muhammad Haris Zafar**  <br> [![@mhariszaffar](https://img.shields.io/badge/GitHub-mhariszaffar-181717?style=for-the-badge&logo=github)](https://github.com/mhariszaffar) | **Muhammad Ibrahim Gulzar**  <br> [![@ibrahim-gulzar](https://img.shields.io/badge/GitHub-ibrahim--gulzar-181717?style=for-the-badge&logo=github)](https://github.com/ibrahim-gulzar) |
 
 
 ---
