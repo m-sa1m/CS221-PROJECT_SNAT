@@ -2,6 +2,7 @@
 #define STRUCTURE_H
 #pragma once
 
+#include "structure.h"
 #include <string>
 using namespace std;
 
