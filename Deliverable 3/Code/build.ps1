@@ -1,5 +1,5 @@
 # ============================================
-# SNAT Build Script - Deliverable 3
+# SNAT Build Script - 
 # Secure Network Assessment Tool
 # ============================================
 
