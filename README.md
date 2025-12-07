@@ -866,10 +866,9 @@ See [Future Work](#future-work) section for planned enhancements.
 **Institution:** Ghulam Ishaq Khan Institute   
 **Academic Year:** 2024-2025  
 **Email:** zubair.ahmad@giki.edu.pk
-**Git-Hub:**
-| **Dr. Zubair Ahmad**<br> [@ZAhmaad](https://github.com/ZAhmaad) |
+**Git-Hub:**[@ZAhmaad](https://github.com/ZAhmaad) |
 
-
+---
 **Course Instructor:**  
 Dr. Zubair Ahmad  
 Email: zubair.ahmad@giki.edu.pk  
