@@ -1,4 +1,4 @@
-cd#include <iostream>
+#include <iostream>
 using namespace std;
 
 #include "algorithm.h"
