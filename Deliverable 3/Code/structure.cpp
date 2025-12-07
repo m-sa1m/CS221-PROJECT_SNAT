@@ -258,3 +258,43 @@ bool TaskStack::is_full() {
 int TaskStack::size() {
     return top + 1;
 }
+
+// ScanQueue Implementation 
+
+ScanQueue::ScanQueue() {
+    front = 0;
+    rear = -1;
+    count = 0;
+}
+
+void ScanQueue::enqueue(string task) {
+    if (!is_full()) {
+        rear = (rear + 1) % 20;
+        tasks[rear] = task;
+        count++;
+    } else {
+        cout << "[ERROR] Queue is full!\n";
+    }
+}
+
+string ScanQueue::dequeue() {
+    if (!is_empty()) {
+        string task = tasks[front];
+        front = (front + 1) % 20;
+        count--;
+        return task;
+    }
+    return "";
+}
+
+bool ScanQueue::is_empty() {
+    return count == 0;
+}
+
+bool ScanQueue::is_full() {
+    return count >= 20;
+}
+
+int ScanQueue::size() {
+    return count;
+}
