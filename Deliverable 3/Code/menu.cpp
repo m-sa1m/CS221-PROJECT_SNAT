@@ -469,3 +469,65 @@ void handle_analysis(SystemList& list) {
     pause_screen();
 }
 
+
+// Handler: File Operations
+
+
+void handle_file_operations(SystemList& list) {
+    clear_screen();
+    print_header("FILE OPERATIONS");
+    
+    cout << "1. Save Systems to File\n";
+    cout << "2. Load Systems from File\n";
+    cout << "3. Generate Report\n";
+    cout << "4. Back to Main Menu\n";
+    cout << "\nEnter choice: ";
+    
+    int choice;
+    cin >> choice;
+    cin.ignore();
+    
+    switch (choice) {
+        case 1: {
+            string filename = "systems_data.txt";
+            cout << "\n💾 Saving to " << filename << "...\n";
+            
+            if (save_systems_to_file(list, filename)) {
+                cout << "✅ Data saved successfully!\n";
+                cout << "Saved " << list.get_count() << " systems.\n";
+            } else {
+                cout << "❌ Failed to save data.\n";
+            }
+            break;
+        }
+        case 2: {
+            string filename = "systems_data.txt";
+            cout << "\n📂 Loading from " << filename << "...\n";
+            
+            if (load_systems_from_file(list, filename)) {
+                cout << "✅ Data loaded successfully!\n";
+                cout << "Total systems: " << list.get_count() << "\n";
+            } else {
+                cout << "❌ Failed to load data.\n";
+            }
+            break;
+        }
+        case 3: {
+            if (list.get_count() == 0) {
+                cout << "❌ No systems to report.\n";
+                break;
+            }
+            
+            string filename = "network_report.txt";
+            cout << "\n📊 Generating report...\n";
+            generate_report(list, filename);
+            break;
+        }
+        case 4:
+            return;
+        default:
+            cout << "❌ Invalid choice.\n";
+    }
+    
+    pause_screen();
+}
