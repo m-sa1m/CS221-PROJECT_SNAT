@@ -374,3 +374,98 @@ void handle_display_options(SystemList& list) {
     
     pause_screen();
 }
+
+
+// Handler: Performance Analysis
+
+
+void handle_analysis(SystemList& list) {
+    clear_screen();
+    
+    display_analysis_menu();
+    int choice;
+    cin >> choice;
+    cin.ignore();
+    
+    switch (choice) {
+        case 1: {
+            if (list.get_count() == 0) {
+                cout << "❌ No systems for analysis.\n";
+                break;
+            }
+            
+            int count = list.get_count();
+            System** systems = new System*[count];
+            
+            Node* temp = list.get_head();
+            for (int i = 0; i < count; i++) {
+                systems[i] = temp->data;
+                temp = temp->next;
+            }
+            
+            compare_sorting_algorithms(systems, count);
+            delete[] systems;
+            break;
+        }
+        case 2: {
+            if (list.get_count() == 0) {
+                cout << "❌ No systems to analyze.\n";
+                break;
+            }
+            
+            RiskBST bst;
+            Node* temp = list.get_head();
+            Node* start = temp;
+            
+            cout << "\n🌳 Building Binary Search Tree...\n";
+            do {
+                bst.insert(temp->data);
+                temp = temp->next;
+            } while (temp != start);
+            
+            cout << "✅ BST constructed!\n";
+            bst.inorder_traversal();
+            bst.preorder_traversal();
+            bst.postorder_traversal();
+            break;
+        }
+        case 3: {
+            cout << "\n=== STACK DEMONSTRATION (LIFO) ===\n";
+            TaskStack stack;
+            
+            cout << "Pushing tasks: A, B, C, D\n";
+            stack.push("Task A");
+            stack.push("Task B");
+            stack.push("Task C");
+            stack.push("Task D");
+            
+            cout << "\nPopping tasks (Last In, First Out):\n";
+            while (!stack.is_empty()) {
+                cout << "  ← " << stack.pop() << "\n";
+            }
+            
+            cout << "\n=== QUEUE DEMONSTRATION (FIFO) ===\n";
+            ScanQueue queue;
+            
+            cout << "Enqueueing: System-1, System-2, System-3\n";
+            queue.enqueue("System-1");
+            queue.enqueue("System-2");
+            queue.enqueue("System-3");
+            
+            cout << "\nDequeuing (First In, First Out):\n";
+            while (!queue.is_empty()) {
+                cout << "  → " << queue.dequeue() << "\n";
+            }
+            
+            cout << "\n✅ Stack and Queue working correctly!\n";
+            break;
+        }
+        case 4:
+            return;
+        default:
+            cout << "❌ Invalid choice.\n";
+    }
+    
+    pause_screen();
+}
+
