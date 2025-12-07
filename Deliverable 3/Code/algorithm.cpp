@@ -198,9 +198,8 @@ void merge_sort(System* systems[], int left, int right) {
     }
 }
 
-// ============================================
+
 // SECTION 3: Searching Algorithms
-// ============================================
 
 // Linear Search - O(n)
 System* linear_search(System* systems[], int n, string name) {
@@ -234,3 +233,65 @@ System* binary_search_by_risk(System* systems[], int n, int risk_score) {
     return NULL;
 }
 
+
+// SECTION 4: Port Scanning & Vulnerability
+
+void scan_ports(System* sys) {
+    cout << "\n[SCANNING] Ports for " << sys->name << " (" << sys->ip << ")...\n";
+    
+    int common_ports[] = {21, 22, 23, 80, 443, 3389, 8080, 53, 110, 25};
+    string port_services[] = {"FTP", "SSH", "Telnet", "HTTP", "HTTPS", 
+                             "RDP", "HTTP-Alt", "DNS", "POP3", "SMTP"};
+    
+    sys->port_count = 0;
+    
+    for (int i = 0; i < 10; i++) {
+        if (rand() % 2) {  // 50% chance port is open
+            sys->port_list[sys->port_count] = common_ports[i];
+            sys->services[sys->port_count] = port_services[i];
+            sys->port_count++;
+            cout << "  [OPEN] Port " << common_ports[i] 
+                 << " (" << port_services[i] << ")\n";
+        }
+    }
+    
+    sys->open_ports = sys->port_count;
+    
+    if (sys->port_count == 0) {
+        cout << "  [INFO] No open ports detected\n";
+    }
+}
+
+void check_vulnerabilities(System* sys) {
+    cout << "\n[CHECKING] Vulnerabilities for " << sys->name << "...\n";
+    
+    sys->vuln_count = 0;
+    sys->is_vulnerable = false;
+    
+    for (int i = 0; i < sys->port_count; i++) {
+        if (sys->port_list[i] == 21 && rand() % 2) {
+            sys->vulnerabilities[sys->vuln_count++] = "FTP Anonymous Login";
+            sys->is_vulnerable = true;
+            cout << "  [!] FTP Anonymous Login Enabled\n";
+        }
+        if (sys->port_list[i] == 23) {
+            sys->vulnerabilities[sys->vuln_count++] = "Telnet Unencrypted";
+            sys->is_vulnerable = true;
+            cout << "  [!] Telnet Service (Unencrypted)\n";
+        }
+        if (sys->port_list[i] == 80 && rand() % 2) {
+            sys->vulnerabilities[sys->vuln_count++] = "HTTP No HTTPS";
+            sys->is_vulnerable = true;
+            cout << "  [!] HTTP without HTTPS redirect\n";
+        }
+        if (sys->port_list[i] == 3389 && rand() % 2) {
+            sys->vulnerabilities[sys->vuln_count++] = "RDP Exposed";
+            sys->is_vulnerable = true;
+            cout << "  [!] RDP exposed to internet\n";
+        }
+    }
+    
+    if (sys->vuln_count == 0) {
+        cout << "  [✓] No vulnerabilities found\n";
+    }
+}
