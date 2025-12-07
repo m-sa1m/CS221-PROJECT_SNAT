@@ -197,3 +197,40 @@ void merge_sort(System* systems[], int left, int right) {
         merge(systems, left, mid, right);
     }
 }
+
+// ============================================
+// SECTION 3: Searching Algorithms
+// ============================================
+
+// Linear Search - O(n)
+System* linear_search(System* systems[], int n, string name) {
+    for (int i = 0; i < n; i++) {
+        if (systems[i]->name == name) {
+            return systems[i];
+        }
+    }
+    return NULL;
+}
+
+// Binary Search - O(log n) - requires sorted array
+System* binary_search_by_risk(System* systems[], int n, int risk_score) {
+    int left = 0, right = n - 1;
+    
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        
+        if (systems[mid]->risk_score == risk_score) {
+            return systems[mid];
+        }
+        
+        // Since sorted in descending order
+        if (systems[mid]->risk_score > risk_score) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    
+    return NULL;
+}
+
