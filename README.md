@@ -22,8 +22,6 @@
 - [Future Work](#future-work)
 - [Contributing](#contributing)
 - [Team](#team)
-- [References](#references)
-- [License](#license)
 
 ---
 
@@ -855,6 +853,14 @@ See [Future Work](#future-work) section for planned enhancements.
 - Integration test suite
 - README and technical documentation
 - Build scripts and deployment
+
+---
+
+## Team:
+**Muhammad Saim:**(2024453)
+**Muhammad Haris Zafar:**(2024396)
+**Muhammad Ibrahim Gulzar:**(2024409)
+
 
 ### Academic Information
 
