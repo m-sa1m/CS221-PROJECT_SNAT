@@ -225,3 +225,36 @@ void SystemList::traverse_backward() {
     } while (temp != head->prev);
     cout << temp->data->name << "\n";
 }
+
+// ============ TaskStack Implementation ============
+
+TaskStack::TaskStack() {
+    top = -1;
+}
+
+void TaskStack::push(string task) {
+    if (!is_full()) {
+        tasks[++top] = task;
+    } else {
+        cout << "[ERROR] Stack is full!\n";
+    }
+}
+
+string TaskStack::pop() {
+    if (!is_empty()) {
+        return tasks[top--];
+    }
+    return "";
+}
+
+bool TaskStack::is_empty() {
+    return top == -1;
+}
+
+bool TaskStack::is_full() {
+    return top >= 19;
+}
+
+int TaskStack::size() {
+    return top + 1;
+}
