@@ -46,3 +46,39 @@ void SystemList::add_system(System* sys) {
     }
     count++;
 }
+
+// Delete system by name
+bool SystemList::delete_system(string name) {
+    if (!head) return false;
+    
+    Node* current = head;
+    Node* start = head;
+    
+    do {
+        if (current->data->name == name) {
+            // Only one node
+            if (current->next == current) {
+                delete current->data;
+                delete current;
+                head = NULL;
+            } else {
+                // Update connections
+                current->prev->next = current->next;
+                current->next->prev = current->prev;
+                
+                // If deleting head, update head
+                if (current == head) {
+                    head = current->next;
+                }
+                
+                delete current->data;
+                delete current;
+            }
+            count--;
+            return true;
+        }
+        current = current->next;
+    } while (current != start);
+    
+    return false;
+}
