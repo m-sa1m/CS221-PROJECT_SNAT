@@ -854,9 +854,10 @@ See [Future Work](#future-work) section for planned enhancements.
 ---
 
 ## Team:
-- **Muhammad Saim:**(2024453).
-- **Muhammad Haris Zafar:**(2024396).
-- **Muhammad Ibrahim Gulzar:**(2024409).
+- **Muhammad Saim** ([m-sa1m](https://github.com/m-sa1m))
+- **Muhammad Haris Zafar** ([mhariszaffar](https://github.com/mhariszaffar))
+- **Muhammad Ibrahim Gulzar** ([ibrahim-gulzar](https://github.com/ibrahim-gulzar))
+
 
 ---
 ## Academic Information
