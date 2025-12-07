@@ -89,3 +89,34 @@ struct ScanQueue {
     bool is_full();
     int size();
 };
+
+// STEP 6: Binary Search Tree for Risk-based Organization
+struct BSTNode {
+    System* data;
+    BSTNode* left;
+    BSTNode* right;
+};
+
+class RiskBST {
+private:
+    BSTNode* root;
+    
+    BSTNode* insert_helper(BSTNode* node, System* sys);
+    void inorder_helper(BSTNode* node);
+    void preorder_helper(BSTNode* node);
+    void postorder_helper(BSTNode* node);
+    BSTNode* search_helper(BSTNode* node, int risk_score);
+    void destroy_tree(BSTNode* node);
+    
+public:
+    RiskBST();
+    ~RiskBST();
+    
+    void insert(System* sys);
+    void inorder_traversal();
+    void preorder_traversal();
+    void postorder_traversal();
+    System* search_by_risk(int risk_score);
+};
+
+#endif
