@@ -2,7 +2,7 @@
 #define ALGORITHM_H
 #pragma once
 
-
+#include "structure.h"
 // Risk Calculation Algorithms
 int calculate_risk(System* sys);
 void calculate_all_risks(SystemList& list);
