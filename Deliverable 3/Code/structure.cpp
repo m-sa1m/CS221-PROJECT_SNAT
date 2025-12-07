@@ -131,3 +131,61 @@ void SystemList::display_all() {
     } while (temp != head);
 }
 
+
+// Display only high-risk systems
+void SystemList::display_high_risk() {
+    if (!head) {
+        cout << "No systems in the network.\n";
+        return;
+    }
+    
+    Node* temp = head;
+    bool found = false;
+    
+    cout << "\n========== HIGH RISK SYSTEMS (≥80) ==========\n";
+    do {
+        if (temp->data->risk_score >= 80) {
+            System* s = temp->data;
+            cout << "- " << s->name << " (" << s->ip << ") - Risk: " 
+                 << s->risk_score << "/100\n";
+            found = true;
+        }
+        temp = temp->next;
+    } while (temp != head);
+    
+    if (!found) {
+        cout << "No high-risk systems found.\n";
+    }
+}
+
+// Display system by IP
+void SystemList::display_by_ip(string ip) {
+    if (!head) {
+        cout << "No systems in the network.\n";
+        return;
+    }
+    
+    Node* temp = head;
+    Node* start = head;
+    System* sys = NULL;
+    
+    do {
+        if (temp->data->ip == ip) {
+            sys = temp->data;
+            break;
+        }
+        temp = temp->next;
+    } while (temp != start);
+    
+    if (sys) {
+        cout << "\n=== System Details ===\n";
+        cout << "Name: " << sys->name << "\n";
+        cout << "IP: " << sys->ip << "\n";
+        cout << "Risk Score: " << sys->risk_score << "/100\n";
+        cout << "Password Strength: " << sys->password_strength << "/10\n";
+        cout << "Firewall: " << (sys->firewalls ? "ON" : "OFF") << "\n";
+    } else {
+        cout << "System with IP " << ip << " not found.\n";
+    }
+}
+
