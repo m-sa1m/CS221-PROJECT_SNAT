@@ -61,3 +61,31 @@ public:
     void traverse_forward();
     void traverse_backward();
 };
+
+// STEP 4: Stack for Task Management (LIFO)
+struct TaskStack {
+    string tasks[20];
+    int top;
+    
+    TaskStack();
+    void push(string task);
+    string pop();
+    bool is_empty();
+    bool is_full();
+    int size();
+};
+
+// STEP 5: Queue for Scanning Tasks (FIFO)
+struct ScanQueue {
+    string tasks[20];
+    int front;
+    int rear;
+    int count;
+    
+    ScanQueue();
+    void enqueue(string task);
+    string dequeue();
+    bool is_empty();
+    bool is_full();
+    int size();
+};
