@@ -22,7 +22,7 @@
 - [Future Work](#future-work)
 - [Contributing](#contributing)
 - [Team](#team)
-- [Acknowledgments](#acknowledgements)
+- [Acknowledgments](#acknowledgments)
 ---
 
 ## Project Overview
