@@ -189,3 +189,39 @@ void SystemList::display_by_ip(string ip) {
     }
 }
 
+// Get head pointer
+Node* SystemList::get_head() {
+    return head;
+}
+
+// Forward traversal
+void SystemList::traverse_forward() {
+    if (!head) {
+        cout << "List is empty.\n";
+        return;
+    }
+    
+    Node* temp = head;
+    cout << "\nForward Traversal: ";
+    do {
+        cout << temp->data->name << " -> ";
+        temp = temp->next;
+    } while (temp != head);
+    cout << "(back to start)\n";
+}
+
+// Backward traversal
+void SystemList::traverse_backward() {
+    if (!head) {
+        cout << "List is empty.\n";
+        return;
+    }
+    
+    Node* temp = head->prev;
+    cout << "\nBackward Traversal: ";
+    do {
+        cout << temp->data->name << " -> ";
+        temp = temp->prev;
+    } while (temp != head->prev);
+    cout << temp->data->name << "\n";
+}
