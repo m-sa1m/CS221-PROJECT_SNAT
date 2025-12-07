@@ -23,6 +23,5 @@ if ($LASTEXITCODE -eq 0) {
     Write-Host "❌ Compilation failed!" -ForegroundColor Red
 }
 
-# cd
 # Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 #.\build.ps1
