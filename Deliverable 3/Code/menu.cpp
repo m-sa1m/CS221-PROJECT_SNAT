@@ -327,3 +327,50 @@ void handle_sort_systems(SystemList& list) {
     pause_screen();
 }
 
+
+
+// Handler: Display Options
+
+
+void handle_display_options(SystemList& list) {
+    clear_screen();
+    print_header("DISPLAY OPTIONS");
+    
+    if (list.get_count() == 0) {
+        cout << "❌ No systems in the network.\n";
+        pause_screen();
+        return;
+    }
+    
+    cout << "1. Display All Systems\n";
+    cout << "2. Display High Risk Systems\n";
+    cout << "3. Forward Traversal (Circular)\n";
+    cout << "4. Backward Traversal (Circular)\n";
+    cout << "5. Back to Main Menu\n";
+    cout << "\nEnter choice: ";
+    
+    int choice;
+    cin >> choice;
+    cin.ignore();
+    
+    switch (choice) {
+        case 1:
+            list.display_all();
+            break;
+        case 2:
+            list.display_high_risk();
+            break;
+        case 3:
+            list.traverse_forward();
+            break;
+        case 4:
+            list.traverse_backward();
+            break;
+        case 5:
+            return;
+        default:
+            cout << "❌ Invalid choice.\n";
+    }
+    
+    pause_screen();
+}
