@@ -1,0 +1,103 @@
+========================================
+  NETWORK SECURITY ASSESSMENT REPORT
+  Secure Network Assessment Tool (SNAT)
+========================================
+
+EXECUTIVE SUMMARY
+----------------------------------------
+Total Systems Assessed: 5
+
+Risk Distribution:
+  • High Risk (≥80):     4 systems
+  • Medium Risk (50-79): 0 systems
+  • Low Risk (<50):      1 systems
+
+Total Vulnerabilities Found: 2
+
+⚠️  CRITICAL FINDINGS
+----------------------------------------
+4 system(s) require immediate attention!
+
+DETAILED SYSTEM ANALYSIS
+========================================
+
+System #1: WebServer
+----------------------------------------
+IP Address:         192.168.1.10
+Risk Score:         32/100 [LOW]
+Password Strength:  9/10
+Open Ports:         2
+Firewall:           ENABLED
+Encryption:         ENABLED
+Malware Detected:   NO
+
+Vulnerabilities: None detected
+
+System #2: Database
+----------------------------------------
+IP Address:         192.168.1.20
+Risk Score:         100/100 [HIGH]
+Password Strength:  3/10
+Open Ports:         8
+Firewall:           DISABLED
+Encryption:         DISABLED
+Malware Detected:   YES
+
+Vulnerabilities: None detected
+
+System #3: Workstation
+----------------------------------------
+IP Address:         192.168.1.30
+Risk Score:         80/100 [HIGH]
+Password Strength:  8/10
+Open Ports:         5
+Firewall:           ENABLED
+Encryption:         ENABLED
+Malware Detected:   NO
+
+Vulnerabilities (2):
+  • Telnet Unencrypted
+  • RDP Exposed
+
+System #4: FileServer
+----------------------------------------
+IP Address:         192.168.1.40
+Risk Score:         85/100 [HIGH]
+Password Strength:  6/10
+Open Ports:         4
+Firewall:           ENABLED
+Encryption:         DISABLED
+Malware Detected:   NO
+
+Vulnerabilities: None detected
+
+System #5: MailServer
+----------------------------------------
+IP Address:         192.168.1.50
+Risk Score:         97/100 [HIGH]
+Password Strength:  5/10
+Open Ports:         5
+Firewall:           DISABLED
+Encryption:         ENABLED
+Malware Detected:   NO
+
+Vulnerabilities: None detected
+
+========================================
+RECOMMENDATIONS
+========================================
+
+1. IMMEDIATE ACTION REQUIRED:
+   • Address all HIGH RISK systems within 24 hours
+   • Enable firewalls on all vulnerable systems
+   • Update weak passwords immediately
+
+3. GENERAL RECOMMENDATIONS:
+   • Conduct regular security assessments
+   • Implement multi-factor authentication
+   • Keep all systems updated with latest patches
+   • Conduct employee security awareness training
+
+========================================
+END OF REPORT
+========================================
