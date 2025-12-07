@@ -22,7 +22,7 @@
 - [Future Work](#future-work)
 - [Contributing](#contributing)
 - [Team](#team)
-
+- [Acknowledgments](#acknowledgements)
 ---
 
 ## Project Overview
@@ -31,8 +31,6 @@ SNAT (Secure Network Assessment Tool) is a comprehensive cybersecurity risk asse
 
 **Course Information:**
 - Course: CS221 - Data Structures and Algorithms
-- Deliverable: 3 of 4
-- Version: 3.0
 - Academic Year: 2024-2025
 
 ---
@@ -100,8 +98,8 @@ SNAT (Secure Network Assessment Tool) is a comprehensive cybersecurity risk asse
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/snat-project.git
-cd snat-project/Deliverable-3
+git clone https://github.com/m-sa1m/CS221-PROJECT_SNAT.git
+cd CS221-PROJECT_SNAT
 ```
 
 ### Step 2: Verify File Structure
@@ -122,7 +120,6 @@ Deliverable-3/
 ├── fileio.h
 ├── fileio.cpp
 ├── build.ps1
-├── README.md
 └── Deliverable3_Report.md
 ```
 
@@ -857,20 +854,18 @@ See [Future Work](#future-work) section for planned enhancements.
 ---
 
 ## Team:
-**Muhammad Saim:**(2024453)
-**Muhammad Haris Zafar:**(2024396)
-**Muhammad Ibrahim Gulzar:**(2024409)
+- **Muhammad Saim:**(2024453).
+- **Muhammad Haris Zafar:**(2024396).
+- **Muhammad Ibrahim Gulzar:**(2024409).
 
-
-### Academic Information
+---
+## Academic Information
 
 **Course:** CS221 - Data Structures and Algorithms  
 **Instructor:** Dr. Zubair Ahmad  
 **Institution:** Ghulam Ishaq Khan Institute   
 **Academic Year:** 2024-2025  
 **Email:** zubair.ahmad@giki.edu.pk
-
----
 
 
 **Course Instructor:**  
@@ -879,6 +874,7 @@ Email: zubair.ahmad@giki.edu.pk
 Office: G14 FCSE Lobby
 
 
+---
 
 ## Acknowledgments
 
