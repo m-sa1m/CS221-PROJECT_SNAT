@@ -82,3 +82,52 @@ bool SystemList::delete_system(string name) {
     
     return false;
 }
+
+// Search system by name
+System* SystemList::search_system(string name) {
+    if (!head) return NULL;
+    
+    Node* current = head;
+    Node* start = head;
+    
+    do {
+        if (current->data->name == name) {
+            return current->data;
+        }
+        current = current->next;
+    } while (current != start);
+    
+    return NULL;
+}
+
+// Get total count
+int SystemList::get_count() {
+    return count;
+}
+
+// Display all systems
+void SystemList::display_all() {
+    if (!head) {
+        cout << "No systems in the network.\n";
+        return;
+    }
+    
+    Node* temp = head;
+    int index = 1;
+    
+    cout << "\n========== ALL SYSTEMS ==========\n";
+    do {
+        System* s = temp->data;
+        string level = (s->risk_score < 50) ? "LOW" : 
+                      (s->risk_score < 80) ? "MEDIUM" : "HIGH";
+        
+        cout << index++ << ". " << s->name << " (" << s->ip << ")\n";
+        cout << "   Risk Score: " << s->risk_score << "/100 (" << level << ")\n";
+        cout << "   Open Ports: " << s->open_ports << " | Firewall: " 
+             << (s->firewalls ? "ON" : "OFF") << "\n";
+        cout << "   --------------------------------\n";
+        
+        temp = temp->next;
+    } while (temp != head);
+}
+
