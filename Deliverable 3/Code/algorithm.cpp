@@ -295,3 +295,57 @@ void check_vulnerabilities(System* sys) {
         cout << "  [✓] No vulnerabilities found\n";
     }
 }
+
+// ============================================
+// SECTION 5: Performance Analysis
+// ============================================
+
+double measure_sorting_time(void (*sort_func)(System*[], int), System* systems[], int n) {
+    // Create copy to not modify original
+    System** copy = new System*[n];
+    for (int i = 0; i < n; i++) {
+        copy[i] = systems[i];
+    }
+    
+    auto start = chrono::high_resolution_clock::now();
+    sort_func(copy, n);
+    auto end = chrono::high_resolution_clock::now();
+    
+    chrono::duration<double, micro> duration = end - start;
+    delete[] copy;
+    
+    return duration.count();
+}
+
+void compare_sorting_algorithms(System* systems[], int n) {
+    cout << "\n========================================\n";
+    cout << "  SORTING ALGORITHM PERFORMANCE\n";
+    cout << "========================================\n";
+    cout << "Dataset size: " << n << " systems\n\n";
+    
+    double time_selection = measure_sorting_time(selection_sort, systems, n);
+    double time_bubble = measure_sorting_time(bubble_sort, systems, n);
+    double time_insertion = measure_sorting_time(insertion_sort, systems, n);
+    
+    cout << "1. Selection Sort: " << time_selection << " μs (O(n²))\n";
+    cout << "2. Bubble Sort:    " << time_bubble << " μs (O(n²))\n";
+    cout << "3. Insertion Sort: " << time_insertion << " μs (O(n²))\n";
+    
+    cout << "\n[NOTE] Quick Sort and Merge Sort (O(n log n))\n";
+    cout << "       would be significantly faster for n > 100\n";
+    
+    // Determine fastest
+    string fastest = "Selection Sort";
+    double min_time = time_selection;
+    
+    if (time_bubble < min_time) {
+        fastest = "Bubble Sort";
+        min_time = time_bubble;
+    }
+    if (time_insertion < min_time) {
+        fastest = "Insertion Sort";
+        min_time = time_insertion;
+    }
+    
+    cout << "\n✓ Fastest for this dataset: " << fastest << "\n";
+}
