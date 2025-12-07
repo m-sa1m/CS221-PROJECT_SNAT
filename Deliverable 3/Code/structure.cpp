@@ -298,3 +298,114 @@ bool ScanQueue::is_full() {
 int ScanQueue::size() {
     return count;
 }
+
+
+// RiskBST Implementation 
+
+RiskBST::RiskBST() {
+    root = NULL;
+}
+
+RiskBST::~RiskBST() {
+    destroy_tree(root);
+}
+
+void RiskBST::destroy_tree(BSTNode* node) {
+    if (node) {
+        destroy_tree(node->left);
+        destroy_tree(node->right);
+        delete node;
+    }
+}
+
+BSTNode* RiskBST::insert_helper(BSTNode* node, System* sys) {
+    if (!node) {
+        BSTNode* newNode = new BSTNode();
+        newNode->data = sys;
+        newNode->left = NULL;
+        newNode->right = NULL;
+        return newNode;
+    }
+    
+    if (sys->risk_score < node->data->risk_score) {
+        node->left = insert_helper(node->left, sys);
+    } else {
+        node->right = insert_helper(node->right, sys);
+    }
+    
+    return node;
+}
+
+void RiskBST::insert(System* sys) {
+    root = insert_helper(root, sys);
+}
+
+void RiskBST::inorder_helper(BSTNode* node) {
+    if (node) {
+        inorder_helper(node->left);
+        cout << node->data->name << " (Risk: " << node->data->risk_score << ") -> ";
+        inorder_helper(node->right);
+    }
+}
+
+void RiskBST::inorder_traversal() {
+    cout << "\nInorder Traversal (Sorted by Risk - Ascending): ";
+    if (!root) {
+        cout << "Empty tree\n";
+        return;
+    }
+    inorder_helper(root);
+    cout << "END\n";
+}
+
+void RiskBST::preorder_helper(BSTNode* node) {
+    if (node) {
+        cout << node->data->name << " (Risk: " << node->data->risk_score << ") -> ";
+        preorder_helper(node->left);
+        preorder_helper(node->right);
+    }
+}
+
+void RiskBST::preorder_traversal() {
+    cout << "\nPreorder Traversal: ";
+    if (!root) {
+        cout << "Empty tree\n";
+        return;
+    }
+    preorder_helper(root);
+    cout << "END\n";
+}
+
+void RiskBST::postorder_helper(BSTNode* node) {
+    if (node) {
+        postorder_helper(node->left);
+        postorder_helper(node->right);
+        cout << node->data->name << " (Risk: " << node->data->risk_score << ") -> ";
+    }
+}
+
+void RiskBST::postorder_traversal() {
+    cout << "\nPostorder Traversal: ";
+    if (!root) {
+        cout << "Empty tree\n";
+        return;
+    }
+    postorder_helper(root);
+    cout << "END\n";
+}
+
+BSTNode* RiskBST::search_helper(BSTNode* node, int risk_score) {
+    if (!node || node->data->risk_score == risk_score) {
+        return node;
+    }
+    
+    if (risk_score < node->data->risk_score) {
+        return search_helper(node->left, risk_score);
+    }
+    return search_helper(node->right, risk_score);
+}
+
+System* RiskBST::search_by_risk(int risk_score) {
+    BSTNode* result = search_helper(root, risk_score);
+    return result ? result->data : NULL;
+}
