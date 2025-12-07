@@ -1,6 +1,14 @@
 # Secure Network Assessment Tool (SNAT)
 
 **Data Structures and Algorithms Project - CS221**
+---
+## Project Overview
+
+SNAT (Secure Network Assessment Tool) is a comprehensive cybersecurity risk assessment application designed to evaluate network systems, identify vulnerabilities, and generate detailed security reports. This project demonstrates practical implementation of fundamental data structures and algorithms in a real-world cybersecurity context.
+
+**Course Information:**
+- Course: CS221 - Data Structures and Algorithms
+- Academic Year: 2024-2025
 
 ---
 
@@ -23,16 +31,6 @@
 - [Contributing](#contributing)
 - [Team](#team)
 - [Acknowledgments](#acknowledgments)
----
-
-## Project Overview
-
-SNAT (Secure Network Assessment Tool) is a comprehensive cybersecurity risk assessment application designed to evaluate network systems, identify vulnerabilities, and generate detailed security reports. This project demonstrates practical implementation of fundamental data structures and algorithms in a real-world cybersecurity context.
-
-**Course Information:**
-- Course: CS221 - Data Structures and Algorithms
-- Academic Year: 2024-2025
-
 ---
 
 ## Features
